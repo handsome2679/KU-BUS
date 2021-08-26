@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <style>
+        .all{
+            border : 1px solid gray;
+        }
+        #header{
+            text-align:center;
+        }
+        .tables{
+            margin:auto;
+        }
+        #seatselect, #call{
+            margin-top : 30px;
+            font-size : 20px;
+            padding : 10px;
+        }
+    </style>
+    <script>
+        function newPage(){
+            window.location.href =
+            'SeatList.html'
+        }
+    </script>
+    <body>
+        <div class = "all">
+            <div id = "header">
+                <table border = "1" class = "tables">
+                    <tr id = "nowposition">
+                        <td>현위치</td>
+                    </td>
+                    </tr>
+
+                    <tr>
+                        <td>탑승 예정 위치</td>
+                    </tr>
+                    <tr>
+                        <td>목적지</td>
+                    </tr>
+                    <tr>
+                        <td>동승자</td>
+                    </tr>
+                    <tr>
+                        <td>배정 차량</td>
+                    </tr>
+                </table>
+
+            <div class = "SelectSeat">
+                    <input type="button" value="좌석 선택" id = "seatselect" onclick = 'newPage()'>
+            </div>
+
+            <div class = "CallCar">
+                <input type="button" value="호출" id = "call">
+            </div>
+            </div>
+        </div>
+    </body>
+</html>
