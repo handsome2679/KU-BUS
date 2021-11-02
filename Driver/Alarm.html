@@ -31,33 +31,31 @@
             }
         }
         $(document).ready(function(){
-            PrintData();
-
-        })
-        function PrintData(id, message, email, time){
-            var data = sample;
-            var templete = $("#AlarmTemplete");
-            var td = $("#studentAlarm td");
-            var contents = $("div#Alarmcontents");
-            templete.removeClass("template");
-            for (var i = 0; i < Object.keys(sample).length; i++){
-                var key = Object.keys(data)[i]; //key는 자주 접근하니 선언!
-                var value1 = data[key].name;
-                var value2 = data[key].message;
-                var value3 = data[key].email;
-                var value4 = data[key].sendtime; 
-                $("div#AlarmContents > #Alarmer").html(value1);
-                $("div#AlarmContents > #AlarmTitle").html(value2);
-                $("div#AlarmContents > #AlarmEmail").html(value3);
-                $("div#AlarmContents > #AlarmSendtime").html(value4);
-                $("div#Alarms").append(templete.html())
-            }
-            //td[0].append(value1);
-            //td[1].append(value2);
-            //td[2].append(value3);
-            //td[3].append(value4);
-                
+            $.ajax({
+                url: top.debugging ? "../src/alarmSample.json" : "http://smartku.bingha.me/node/alarm",
+                type:"GET",
+                error: function(jqXHR, textstatus, errorthrown){
+                    alert("Error");
+                },
+                success: function(data, status, xhr){
+                    alert("Success")
+                }
+            })
+        });
+    function PrintData(id, message, email, time){
+        var td = $("#studentAlarm td")
+        for (var i = 0; i < Object.keys(sampledata).length; i++){
+            var  = data[Object.keys(data)[i].name;
+            var value2 = data[Object.keys(data)[i].message;
+            var value3 = data[Object.keys(data)[i].email;
+            var value4 = data[Object.keys(data)[i].sendtime;
         }
+        td[0].append(value1);
+        td[1].append(value2);
+        td[2].append(value3);
+        td[3].append(value4);
+            
+    }
 
     </script>
 </head>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let sampledata = {
+        "people1" : {
+            "name" : "홍길동",
+            "message" : "asdf",
+            "email" : "korea@korea.ac.kr",
+            "sendtime" : "???"
+        },
+        "people2" : {
+            "name" : "홍길동",
+            "message" : "asdf",
+            "email" : "korea@korea.ac.kr",
+            "sendtime" : "???"
+        },
+        "people3" : {
+            "name" : "홍길동",
+            "message" : "asdf",
+            "email" : "korea@korea.ac.kr",
+            "sendtime" : "???"
+        }
+    }
+    for (var i = 0; i < sampledata.length; i++)
+    console.log(Object.values(sampledata)[0].name);
+    console.log(sampledata.people1.name); // 홍길동
+    console.log(Object.keys(sampledata)[0]); // people1
+    console.log(sampledata[Object.keys(sampledata)[0]].name); // 홍길동
+    console.log(sampledata[Object.keys[Object.keys(sampledata)[0]]]);
+
+    //object.keys(sampledata) = [people1, people2, people3]
+    //Object.keys(sampledata)[0]); // people1
+    //sampledata[object.keys(sampledata)[0]].name = 홍길동
+    //sampledata[object.keys(sampledata[object.values(sampledata)[0]])]
+    //object.values(sampledata) = {name : 홍길동, message : "asdf", "email" : "korea@korea.ac.kr"}
+    </script>
+    
+</body>
+</html>
