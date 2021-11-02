@@ -1,17 +1,17 @@
 {
-    "1" : {
+    "people1" : {
         "name" : "홍길동",
         "message" : "asdf",
         "email" : "korea@korea.ac.kr",
         "sendtime" : "???"
     },
-    "2" : {
+    "people2" : {
         "name" : "홍길동",
         "message" : "asdf",
         "email" : "korea@korea.ac.kr",
         "sendtime" : "???"
     },
-    "3" : {
+    "people3" : {
         "name" : "홍길동",
         "message" : "asdf",
         "email" : "korea@korea.ac.kr",
