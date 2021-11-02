@@ -76,6 +76,7 @@
     <script src="src/sha3.js"></script>
     <script src="src/urlParameter.js"></script>
     <script src="src/login.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script>
         var debugging = false;
         var isStudent = true;
@@ -105,7 +106,42 @@
                 isStudent = !isStudent;
                 $("#Class").html(isStudent ? "학생": "기사");
             });
+            $("#LoginWithKakao").click(loginWithKakao);
+
+            // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+            Kakao.init('d2481bf8dd089370ad295dd73d94a65a');
+
+            // SDK 초기화 여부를 판단합니다.
+            console.log(Kakao.isInitialized());
         });
+            
+        ////ref. with: https://developers.kakao.com/tool/demo/login/login
+            function loginWithKakao() {
+                Kakao.Auth.authorize({
+                redirectUri: 'https://developers.kakao.com/tool/demo/oauth'
+                })
+            }
+            // 아래는 데모를 위한 UI 코드입니다.
+            displayToken()
+            function displayToken() {
+                const token = getCookie('authorize-access-token')
+                if(token) {
+                Kakao.Auth.setAccessToken(token)
+                Kakao.Auth.getStatusInfo(({ status }) => {
+                    if(status === 'connected') {
+                    document.getElementById('token-result').innerText = 'login success. token: ' + Kakao.Auth.getAccessToken()
+                    } else {
+                    Kakao.Auth.setAccessToken(null)
+                    }
+                })
+                }
+            }
+            function getCookie(name) {
+                const value = "; " + document.cookie;
+                const parts = value.split("; " + name + "=");
+                if (parts.length === 2) return parts.pop().split(";").shift();
+            }
+        ////end ref.
     </script>
 </head>
 
@@ -117,6 +153,9 @@
             </div>
             <h1>고려대 배리어프리 카풀 <div class="br"> KUBUS</div></h1>  <!-- ms;개인적인바램: br같은 태그를 사용하기 보단, div로 css에서 디자인을 정의! (모듈화)-->
             <h2>이동지원차량서비스</h2>
+            <div>
+                <button id="LoginWithKakao"><img src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg" width="222"></button>
+            </div>
 
             <div id="LoginField">
                 <input id="Username" type="text" maxlength="20" placeholder="아이디 ID" required> <br>
