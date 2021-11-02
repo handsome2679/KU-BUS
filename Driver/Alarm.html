@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../src/JQuery.js"></script>
+    <link rel="stylesheet" type="text/css" href="../src/Alarm.css">
+    <title>Driver Alarm</title>
+
+    <script>
+        var sample = {  // 샘플데이터
+            "1" : {
+                "name" : "홍길동",
+                "message" : "asdf",
+                "email" : "korea@korea.ac.kr",
+                "sendtime" : "???"
+            },
+            "2" : {
+                "name" : "홍길동",
+                "message" : "asdf",
+                "email" : "korea@korea.ac.kr",
+                "sendtime" : "???"
+            },
+            "3" : {
+                "name" : "홍길동",
+                "message" : "asdf",
+                "email" : "korea@korea.ac.kr",
+                "sendtime" : "???"
+            }
+        }
+        $(document).ready(function(){
+            PrintData();
+
+        })
+        function PrintData(id, message, email, time){
+            var data = sample;
+            var templete = $("#AlarmTemplete");
+            var td = $("#studentAlarm td");
+            var contents = $("div#Alarmcontents");
+            templete.removeClass("template");
+            for (var i = 0; i < Object.keys(sample).length; i++){
+                var key = Object.keys(data)[i]; //key는 자주 접근하니 선언!
+                var value1 = data[key].name;
+                var value2 = data[key].message;
+                var value3 = data[key].email;
+                var value4 = data[key].sendtime; 
+                $("div#AlarmContents > #Alarmer").html(value1);
+                $("div#AlarmContents > #AlarmTitle").html(value2);
+                $("div#AlarmContents > #AlarmEmail").html(value3);
+                $("div#AlarmContents > #AlarmSendtime").html(value4);
+                $("div#Alarms").append(templete.html())
+            }
+            //td[0].append(value1);
+            //td[1].append(value2);
+            //td[2].append(value3);
+            //td[3].append(value4);
+                
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="AlarmTemplete" class="template">
+        <div id="Alarm">
+            <div id="AlarmImage"></div>
+            <div id="AlarmContents">
+                <h2 id="Alarmer"></h2>
+                <h3 id="AlarmTitle"></h3>
+                <h3 id="AlarmEmail" hidden></h3>
+                <h3 id="AlarmSendtime"></h3>
+            </div>
+
+        </div>
+    </div>
+    <div id="Alarms">
+    </div>
+</body>
+
+</html>
