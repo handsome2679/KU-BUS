@@ -10,7 +10,26 @@
     <title>Driver Alarm</title>
 
     <script>
-        
+        var sample = {  // 샘플데이터
+            "1" : {
+                "name" : "홍길동",
+                "message" : "asdf",
+                "email" : "korea@korea.ac.kr",
+                "sendtime" : "???"
+            },
+            "2" : {
+                "name" : "홍길동",
+                "message" : "asdf",
+                "email" : "korea@korea.ac.kr",
+                "sendtime" : "???"
+            },
+            "3" : {
+                "name" : "홍길동",
+                "message" : "asdf",
+                "email" : "korea@korea.ac.kr",
+                "sendtime" : "???"
+            }
+        }
         $(document).ready(function(){
             $.ajax({
                 url: top.debugging ? "../src/alarmSample.json" : "http://smartku.bingha.me/node/alarm",
@@ -43,11 +62,13 @@
 
 <body>
     <div id="AlarmTemplete" class="template">
-        <div id="Alarm+">
-            <div id="AlarmImage">
+        <div id="Alarm">
+            <div id="AlarmImage"></div>
             <div id="AlarmContents">
                 <h2 id="Alarmer"></h2>
                 <h3 id="AlarmTitle"></h3>
+                <h3 id="AlarmEmail" hidden></h3>
+                <h3 id="AlarmSendtime"></h3>
             </div>
 
         </div>
